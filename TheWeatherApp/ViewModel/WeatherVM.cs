@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,12 @@ namespace TheWeatherApp.ViewModel
 {
     public class WeatherVM : INotifyPropertyChanged
     {
+        public ObservableCollection<City> Cities { get; set; }
         public SearchCommand SearchCommand { get; set; }
         public WeatherVM()
         {
             SearchCommand = new SearchCommand(this);
+            Cities = new ObservableCollection<City>();
         }
 
         private string query;
@@ -30,14 +33,14 @@ namespace TheWeatherApp.ViewModel
             }
         }
 
-        private CurrentConditions currectConditions;
+        private CurrentConditions currentConditions;
 
         public CurrentConditions CurrentConditions
         {
-            get { return currectConditions; }
+            get { return currentConditions; }
             set 
-            { 
-                currectConditions = value;
+            {
+                currentConditions = value;
                 OnPropertyChanged("CurrentConditions");
 
             }
@@ -51,11 +54,20 @@ namespace TheWeatherApp.ViewModel
             set
             {
                 selectedCity = value;
-                OnPropertyChanged("SelectedCity");
+                if(selectedCity != null)
+                {
+                    OnPropertyChanged("SelectedCity");
+                    GetCurrentConditions();
+                }
             }
         }
 
-
+        private async void GetCurrentConditions()
+        {
+            Query = string.Empty;
+            CurrentConditions = await AccuWeatherHelper.GetCurrentConditions(SelectedCity.Key);
+            Cities.Clear();
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -64,9 +76,15 @@ namespace TheWeatherApp.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public async void makeQuery()
+        public async void MakeQuery()
         {
             var cities = await AccuWeatherHelper.GetCities(Query);
+
+            Cities.Clear();
+            foreach(var city in cities)
+            {
+                Cities.Add(city);
+            }    
         }
     }
 }

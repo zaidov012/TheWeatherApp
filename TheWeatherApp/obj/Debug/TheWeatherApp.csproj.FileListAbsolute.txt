@@ -3,7 +3,6 @@ C:\Users\Lenovo\source\repos\TheWeatherApp\TheWeatherApp\bin\Debug\TheWeatherApp
 C:\Users\Lenovo\source\repos\TheWeatherApp\TheWeatherApp\bin\Debug\TheWeatherApp.pdb
 C:\Users\Lenovo\source\repos\TheWeatherApp\TheWeatherApp\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Lenovo\source\repos\TheWeatherApp\TheWeatherApp\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Lenovo\source\repos\TheWeatherApp\TheWeatherApp\obj\Debug\TheWeatherApp.csprojAssemblyReference.cache
 C:\Users\Lenovo\source\repos\TheWeatherApp\TheWeatherApp\obj\Debug\View\WeatherWindow.g.cs
 C:\Users\Lenovo\source\repos\TheWeatherApp\TheWeatherApp\obj\Debug\App.g.cs
 C:\Users\Lenovo\source\repos\TheWeatherApp\TheWeatherApp\obj\Debug\TheWeatherApp_MarkupCompile.cache

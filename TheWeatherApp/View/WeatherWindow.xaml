@@ -30,7 +30,13 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <TextBlock Text="{Binding LocalizedName}"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="31*"/>
+                                <ColumnDefinition Width="69*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBlock Text="{Binding LocalizedName}" Grid.Column="0"/>
+                            <TextBlock Text="{Binding Country.LocalizedName}" Grid.Column="1"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

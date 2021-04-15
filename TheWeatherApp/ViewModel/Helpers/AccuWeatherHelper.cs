@@ -14,9 +14,10 @@ namespace TheWeatherApp.ViewModel.Helpers
         public const string BASE_URL = "http://dataservice.accuweather.com/";
         public const string AUTOCOMPLETE_ENDPOINT = "locations/v1/cities/autocomplete?apikey={0}&q={1}";
         public const string CURRENT_CONDITIONS_ENDPOINT = "currentconditions/v1/{0}?apikey={1}";
-        public const string API_KEY = "k14PMsUdqKmFtiem8PpYzBl4ND57h9vu";
+        public const string API_KEY = "NSDIcnxrnDAebrzLhTy8BrKMexQdUzeS";
         public const string API_KEY_2 = "ZzGNbqvYGErqgbtpedEP2jIcTR4ghkUM";
-        public const string API_KEY_3 = "NSDIcnxrnDAebrzLhTy8BrKMexQdUzeS";
+        public const string API_KEY_3 = "k14PMsUdqKmFtiem8PpYzBl4ND57h9vu";
+        // NSDIcnxrnDAebrzLhTy8BrKMexQdUzeS
 
         public static async Task<List<City>> GetCities(string query)
         {
